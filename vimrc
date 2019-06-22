@@ -25,6 +25,7 @@ let mapleader = ","
 "    * https://github.com/tpope/vim-sensible
 "    * https://github.com/tpope/vim-fugitive
 "    * https://github.com/scrooloose/nerdcommenter
+"    * https://github.com/kien/ctrlp.vim
 "   Considering:
 "    * https://github.com/garbas/vim-snipmate
 "    * https://github.com/vim-scripts/YankRing.vim
@@ -51,7 +52,13 @@ let mapleader = ","
 "    endif
 "    
 " 
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
+    Plug 'kien/ctrlp.vim'
     Plug 'scrooloose/syntastic'
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-fugitive'
@@ -99,6 +106,11 @@ set showmode        " display which mode is currently active
 set showcmd         " display currenlty typed command
 set ruler           " show row and column number
 set scrolloff=3		" show always 3 lines above and below current line
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Spell check settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set spelllang=pl
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Searching options
