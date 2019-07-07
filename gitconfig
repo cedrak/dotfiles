@@ -1,5 +1,5 @@
 [user]
 	name = cedrak
-	mail = cezary@drak.me
+	email = cezary@drak.me
 [alias]
 	elog = log --color --decorate --graph --oneline

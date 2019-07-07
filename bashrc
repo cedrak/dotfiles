@@ -90,7 +90,27 @@ man() {
 
 # convert library
 # Usage: lc [SOURCE_DIR TARGET_DIR] [SOURCE_FORMAT TARGER_FORMAT]
-lc() { od="$1"; nd="$2"; of=$3; nf=$4; cp -rl "$od" "$nd"; find $nd -type f -iname \*$of -print -execdir ffmpeg -i {} -loglevel error -q:a 6 -vn {}.$nf \; -execdir rm {} +; find $nd -type f -iname \*.$of.$nf -execdir rename "s/$of.$nf/$nf/" {} +; }
+function lc() { od="$1"; nd="$2"; of=$3; nf=$4; cp -rl "$od" "$nd"; find $nd -type f -iname \*$of -print -execdir ffmpeg -i {} -loglevel error -q:a 6 -vn {}.$nf \; -execdir rm {} +; find $nd -type f -iname \*.$of.$nf -execdir rename "s/$of.$nf/$nf/" {} +; }
+
+function apt-history(){
+      case "$1" in
+        install)
+              cat /var/log/dpkg.log | grep 'install '
+              ;;
+        upgrade|remove)
+              cat /var/log/dpkg.log | grep $1
+              ;;
+        rollback)
+              cat /var/log/dpkg.log | grep upgrade | \
+                  grep "$2" -A10000000 | \
+                  grep "$3" -B10000000 | \
+                  awk '{print $4"="$5}'
+              ;;
+        *)
+              cat /var/log/dpkg.log
+              ;;
+      esac
+}
 
 # Alias definitions.
 # enable color support of ls and also add handy aliases
