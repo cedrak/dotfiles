@@ -2,21 +2,7 @@
 !  General
 !-----------------------------------------------------------------------------
 *scrollBar:             false
-!*background:            #404040
-!*foreground:            #FFFFFF
-!*pointerColor:          black
-!*pointerColorBackground:#656565
  
-!-----------------------------------------------------------------------------
-!  xterm
-!-----------------------------------------------------------------------------
-!*termName:              xterm-256color
-!*xterm*faceName:        xft:hack:pixelsize=13
-!
-!XTerm*VT100.*translations:      #override \
-!        Shift Ctrl C: select-end(CLIPBOARD, CUT_BUFFER0) \n\
-!        Shift Ctrl V: insert-selection(CLIPBOARD, CUT_BUFFER0)
-
 !-----------------------------------------------------------------------------
 !  URxvt
 !-----------------------------------------------------------------------------
@@ -32,10 +18,10 @@ URxvt.scrollWithBuffer: true
 URxvt*scrollTtyKeypress:true
 
 !! Font
-URxvt*font:             xft:hack:size=10
-URxvt*fontBold:         xft:hack:size=10:bold
-URxvt.italicFont:       xft:hack:size=10:italic
-URxvt.boldItalicFont:   xft:hack:size=10:bold:italic
+URxvt*font:             xft:hack:size=12
+URxvt*fontBold:         xft:hack:size=12:bold
+URxvt.italicFont:       xft:hack:size=12:italic
+URxvt.boldItalicFont:   xft:hack:size=12:bold:italic
 URxvt.letterSpace:      -1
 
 !! More Xft stuff
@@ -45,20 +31,28 @@ Xft.rgba:               rgb
 Xft.hinting:            true
 Xft.hintstyle:          hintslight
 
-!! Transparency (turned off for colors to work)
-URxvt*transparent:      false
-
-
 !-----------------------------------------------------------------------------
 !  URxvt perl extensions
 !-----------------------------------------------------------------------------
-URxvt.perl-ext-common:  default,matcher,selection-to-clipboard,font-size
+URxvt.perl-ext-common:  default,matcher,selection-to-clipboard,font-size,url-select
 
-!! Open urls in browser
-URxvt.urlLauncher:              /usr/bin/xdg-open
+!! matcher - match text and open urls in browser
+!!
+!! alt+del:      list last 10 matched URL (then open with corresponding digit)
+!! ctrl+mouse1:  open URL under cursor
+URxvt.url-launcher:             /usr/local/bin/firefox
 URxvt.matcher.button:           C1
-URxvt.keysym.Control-Delete:    perl:matcher:last
 URxvt.keysym.Meta-Delete:       perl:matcher:list
+
+!! url-select - open matched URLs with keyboard
+!!
+!! Use Meta-u to activate URL selection mode, then use the following keys:
+!!   j/k:      Select next downward/upward URL (also with arrow keys)
+!!   g/G:      Select first/last URL (also with home/end key)
+!!   o/Return: Open selected URL in browser, Return: deactivate afterwards
+!!   y:        Copy (yank) selected URL and deactivate selection mode
+!!   q/Escape: Deactivate URL selection mode
+URxvt.keysym.M-u: perl:url-select:select_next
 
 !! Change font size with Ctrl-plus/Ctrl-minus
 URxvt.keysym.Control-0x2b: perl:font-size:increase
@@ -75,9 +69,9 @@ URxvt.keysym.C-S-0x56: eval:paste_clipboard
 !  URxvt colors
 !-----------------------------------------------------------------------------
 
-!
-! Tango 
-!
+!!
+!! Tango 
+!!
 
 !URxvt.color0: rgb:00/00/00
 !URxvt.color1: rgb:CC/00/00
@@ -97,12 +91,11 @@ URxvt.keysym.C-S-0x56: eval:paste_clipboard
 !URxvt.color15: rgb:EE/EE/EC
 !URxvt.colorBD: rgb:ff/ff/ff
 
-! Solarized color scheme for the X Window System
-!
-! http://ethanschoonover.com/solarized
+!!
+!! Solarized 
+!!
 
-
-! Common
+!! Common
 
 #define S_yellow        #b58900
 #define S_orange        #cb4b16
@@ -113,7 +106,7 @@ URxvt.keysym.C-S-0x56: eval:paste_clipboard
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-! Dark
+!! Dark
 
 !#define S_base03        #002b36
 !#define S_base02        #073642
@@ -125,7 +118,7 @@ URxvt.keysym.C-S-0x56: eval:paste_clipboard
 !#define S_base3         #fdf6e3
 
 
-! Light
+!! Light
 
 #define S_base03        #fdf6e3
 #define S_base02        #eee8d5
@@ -136,11 +129,7 @@ URxvt.keysym.C-S-0x56: eval:paste_clipboard
 #define S_base2         #073642
 #define S_base3         #002b36
 
-
-! To only apply colors to your terminal, for example, prefix
-! the color assignment statement with its name. Example:
-!
-! URxvt*background:            S_base03
+!! actual color definitions
 
 URxvt*background:              S_base03
 URxvt*foreground:              S_base0
