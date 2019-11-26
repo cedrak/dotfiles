@@ -40,7 +40,7 @@ URxvt.perl-ext-common:  default,matcher,selection-to-clipboard,font-size,url-sel
 !!
 !! alt+del:      list last 10 matched URL (then open with corresponding digit)
 !! ctrl+mouse1:  open URL under cursor
-URxvt.url-launcher:             /usr/local/bin/firefox
+URxvt.url-launcher:             x-www-browser
 URxvt.matcher.button:           C1
 URxvt.keysym.Meta-Delete:       perl:matcher:list
 
@@ -52,7 +52,8 @@ URxvt.keysym.Meta-Delete:       perl:matcher:list
 !!   o/Return: Open selected URL in browser, Return: deactivate afterwards
 !!   y:        Copy (yank) selected URL and deactivate selection mode
 !!   q/Escape: Deactivate URL selection mode
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-u:               perl:url-select:select_next
+URxvt.url-select.launcher:      x-www-browser
 
 !! Change font size with Ctrl-plus/Ctrl-minus
 URxvt.keysym.Control-0x2b: perl:font-size:increase
