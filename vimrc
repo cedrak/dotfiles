@@ -5,14 +5,10 @@
 " Configuration greatly inspired by this post:
 " http://nvie.com/posts/how-i-boosted-my-vim/
 "
-" _TODO_ colors:
-" * https://github.com/altercation/vim-colors-solarized
-" * https://github.com/spf13/vim-colors/
-" 
 " Great post about "vim grammatic":
 "  * https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
 "
-set nocompatible " this need to be set at the beggining of the file
+set nocompatible
 let mapleader = ","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -20,12 +16,6 @@ let mapleader = ","
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "	Manager:
 "	 * https://github.com/junegunn/vim-plug
-"   In use:
-"    * https://github.com/vim-scripts/SearchComplete
-"    * https://github.com/tpope/vim-sensible
-"    * https://github.com/tpope/vim-fugitive
-"    * https://github.com/scrooloose/nerdcommenter
-"    * https://github.com/kien/ctrlp.vim
 "   Considering:
 "    * https://github.com/garbas/vim-snipmate
 "    * https://github.com/vim-scripts/YankRing.vim
@@ -50,8 +40,6 @@ let mapleader = ","
 "    if !exists("g:ycm_semantic_triggers")
 "        let g:ycm_semantic_triggers = {}
 "    endif
-"    
-" 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -63,6 +51,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdcommenter'             " Use <Leader>c<Space>
+    Plug 'dhruvasagar/vim-table-mode'           " Use <Leader>tm
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,7 +74,6 @@ autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 set encoding=utf-8              " default encoding 
 set backspace=indent,eol,start  " allow backspaceing over everything
 set ttyfast                     " improves smoothness
-set hidden                      " TODO
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Wrapping
@@ -110,7 +98,7 @@ set scrolloff=3		" show always 3 lines above and below current line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Spell check settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set spelllang=pl
+set spelllang=pl,en
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Searching options
@@ -125,7 +113,6 @@ set incsearch       " highlight matches during pattern typing
 set showmatch       " brifely jump to the matching bracket when opening one is
                     " inserted
 set hlsearch        " highlight all matches
-"set gdefault       " swaps all matches in line TODO
 
 "" Highlighting
 autocmd BufNewFile,BufFilePre,BufRead *.md setf markdown
@@ -138,15 +125,18 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clean highlight with ", "
 nnoremap <leader><space> :noh<cr>
+
 " find next matching brackets with tab
 nnoremap <tab> %
 vnoremap <tab> %
-" disable F1 
+
+" F1 → Esc
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
 " split navigation
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
