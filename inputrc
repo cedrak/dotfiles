@@ -1,0 +1,4 @@
+# https://relentlesscoding.com/2017/11/30/bash-magic-space/
+$if Bash
+        Space: magic-space
+$endif
