@@ -1,0 +1,5 @@
+mpd_music_dir = /home/cmd/files/music
+allow_for_physical_item_deletion = yes
+system_encoding = "utf8"
+
+colors_enabled = no

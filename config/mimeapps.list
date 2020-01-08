@@ -1,0 +1,31 @@
+[Default Applications]
+x-scheme-handler/http=firefox-esr.desktop
+x-scheme-handler/https=firefox-esr.desktop
+x-scheme-handler/ftp=firefox-esr.desktop
+x-scheme-handler/chrome=firefox-esr.desktop
+text/html=firefox-esr.desktop
+application/x-extension-htm=firefox-esr.desktop
+application/x-extension-html=firefox-esr.desktop
+application/x-extension-shtml=firefox-esr.desktop
+application/xhtml+xml=firefox-esr.desktop
+application/x-extension-xhtml=firefox-esr.desktop
+application/x-extension-xht=firefox-esr.desktop
+x-scheme-handler/magnet=userapp-transmission-gtk-R87Y2Z.desktop
+
+[Added Associations]
+x-scheme-handler/http=firefox-esr.desktop;
+x-scheme-handler/https=firefox-esr.desktop;
+x-scheme-handler/ftp=firefox-esr.desktop;
+x-scheme-handler/chrome=firefox-esr.desktop;
+text/html=firefox-esr.desktop;
+application/x-extension-htm=firefox-esr.desktop;
+application/x-extension-html=firefox-esr.desktop;
+application/x-extension-shtml=firefox-esr.desktop;
+application/xhtml+xml=firefox-esr.desktop;
+application/x-extension-xhtml=firefox-esr.desktop;
+application/x-extension-xht=firefox-esr.desktop;
+application/x-sh=vim.desktop;
+application/octet-stream=mupdf.desktop;transmission-gtk.desktop;libreoffice-writer.desktop;firefox-esr.desktop;vim.desktop;libreoffice-calc.desktop;
+image/jpeg=feh.desktop;
+application/pdf=firefox-esr.desktop;mupdf.desktop;
+x-scheme-handler/magnet=userapp-transmission-gtk-R87Y2Z.desktop;

@@ -123,14 +123,24 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -l'
+alias ll='ls -l --group-directories-first'
 alias la='ls -A'
+alias cal='ncal -M -b'
 
 # Decode PGP/MIME encrypted mails
 alias decode_pgp="perl -m'MIME::QuotedPrint' -ne 'print MIME::QuotedPrint::decode_qp($_);'"
 
 # mutt alias
 alias mutt="neomutt"
+
+# Telegram alias
+alias telegram="~/.bin/Telegram/Telegram > /dev/null &"
+
+# MPV workaround
+alias mpv="/usr/bin/mpv --opengl-es=yes"
+
+# poweroff
+alias poweroff="/sbin/shutdown -h now"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

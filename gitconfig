@@ -1,5 +1,5 @@
 [user]
-	name = TODO
-	email = TODO
+	name = Cezary Drak
+	email = cezary@drak.me
 [alias]
 	elog = log --color --decorate --graph --oneline

@@ -10,6 +10,8 @@ Somehow tested on Debian and CentOS.
 Notes
 =====
 
+* mutt:
+    - configuration via [mutt-wizard]()
 * urxvt:
     - configuration happens via `.Xresources` file. On some systems
       (Enterprise Linux fck yeah!) during startup `xrdb` is invoked with
