@@ -1,0 +1,20 @@
+# unsetting 
+delete
+next_img
+prev_img
+zoom_in
+zoom_out
+toggle_fullscreen
+
+# freeing following keys: f, h, k,
+toggle_pause
+toggle_keep_vp
+save_filelist
+
+# custom key mapping:
+delete D C-Delete
+next_img l n Right
+prev_img h p Left
+zoom_in k plus Up
+zoom_out j minus Down
+toggle_fullscreen f
